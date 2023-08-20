@@ -55,3 +55,9 @@ If you are using the server console:
 - ```log on; mp_logdetail 3; logaddress_add_http "URL"```
 
 Now head over to your HTML web page, and you should be receiving the game logs live from the game server!
+
+## Upcoming features
+
+- Round timing
+- Custom player names
+- Multiple instances on the same app

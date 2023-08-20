@@ -12,11 +12,9 @@ const getLogs = (req, res) => {
     const data = req.body;
     var logs = data.split("\n");
     logs.pop();
-
-    const wss = req.wss;
     
     if (match.firstRequest) {
-        emit(info + "Connection established");
+        emit(req.wss, info + "Connection established");
         match.firstRequest = false;
     }
     
@@ -42,7 +40,7 @@ const getLogs = (req, res) => {
                     msg += "Halftime of the overtime, changing sides\n";
                 msg += "Freezetime has started";
             } else if (result.key === "GAMEOVER") {
-                emit(info + "Match has ended");
+                emit(req.wss, info + "Match has ended");
                 match.statusCode = 410;
                 return;
             } else if (result.key === "KILL") {
@@ -91,13 +89,13 @@ const getLogs = (req, res) => {
                     msg += "Ts have won the round by detonating the bomb";
                 msg += "\n" + info + `Match score: CTs (${result.match[2]}) vs (${result.match[3]}) Ts`
             }
-            emit(wss, msg);
+            emit(req.wss, msg);
         }
     });
 
     if (match.statusCode == 410) {
         match.reset()
-        emit(info + "Connection closed");
+        emit(req.wss, info + "Connection closed");
         res.status(410).send("The match has ended");
     } else {
         res.status(200).send("Receiving logs");
