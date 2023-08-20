@@ -1,10 +1,10 @@
-import regex from "../utils/regex.util.js";
+import { regex } from "../utils/regex.util.js";
 import { match } from "../utils/match.util.js";
-import { sendMessage } from "../utils/websocket.util.js";
+import { emit } from "../utils/websocket.util.js";
 
 const getLogs = (req, res) => {
 
-    const info = `>> ${req.headers["x-server-addr"]} | ${req.headers["x-timestamp"]} | Round ${match.round} | `;
+    const info = `${req.headers["x-server-addr"]} | ${req.headers["x-timestamp"]} | Round ${match.round} | `;
     
     const data = req.body;
     var logs = data.split("\n");
@@ -13,7 +13,7 @@ const getLogs = (req, res) => {
     const wss = req.wss;
     
     if (match.firstRequest) {
-        console.log(info + "Connection established");
+        emit(info + "Connection established");
         match.firstRequest = false;
     }
     
@@ -39,8 +39,7 @@ const getLogs = (req, res) => {
                     msg += "Halftime of the overtime, changing sides\n";
                 msg += "Freezetime has started";
             } else if (result.key === "GAMEOVER") {
-
-                console.log(info + "Match has ended");
+                emit(info + "Match has ended");
                 match.statusCode = 410;
                 return;
             } else if (result.key === "KILL") {
@@ -89,14 +88,13 @@ const getLogs = (req, res) => {
                     msg += "Ts have won the round by detonating the bomb";
                 msg += "\n" + info + `Match score: CTs (${result.match[2]}) vs (${result.match[3]}) Ts`
             }
-            sendMessage(wss, msg);
-            console.log(msg);
+            emit(wss, msg);
         }
     });
 
     if (match.statusCode == 410) {
         match.reset()
-        console.log(info + "Connection closed");
+        emit(info + "Connection closed");
         res.status(410).send("The match has ended");
     } else {
         res.status(200).send("Receiving logs");

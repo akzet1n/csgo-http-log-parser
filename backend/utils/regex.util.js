@@ -10,11 +10,12 @@ const REGEX = {
     ROUND: /\d{2}\/\d{2}\/\d{4} - \d{2}:\d{2}:\d{2}.\d{3} - Team "(?:\w*)" triggered "(\w*)" \(CT "(\d*)"\) \(T "(\d*)"\)/
 }
 
-export default function regex(line) {
+const regex = (line) => {
     for (const [key, value] of Object.entries(REGEX)) {
         const match = line.match(value);
-        if (match) {
+        if (match)
             return { key, match };
-        }
     }
 }
+
+export { regex };

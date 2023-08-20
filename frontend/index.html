@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS:GO HTTP Log Parser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="content">
+        <div class="header">
+            <h1>CS:GO HTTP Log Parser</h1>
+            <div class="subtitle">
+                <a href="https://github.com/akzet1n/csgo-http-log-parser" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <h3>github.com/akzet1n</h3>
+                </a>
+            </div>
+        </div>
+        <div id="logs"></div>
+    </div>
+    <script>
+
+        function scrollToBottom() {
+            var logs = document.querySelector("#logs");
+            logs.scrollTop = logs.scrollHeight;
+        };
+
+        const logs = document.getElementById("logs");
+        const ws = new WebSocket("ws://HOST:PORT");
+        
+        ws.addEventListener("message", (event) => {
+            const message = event.data;
+            const log = document.createElement("p");
+            log.textContent = message;
+            logs.appendChild(log);
+            scrollToBottom();
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+@import 'https://fonts.googleapis.com/css?family=Ubuntu';
+
+* {
+    font-family: Ubuntu, sans-serif;
+}
+
+body, h1, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+#logs::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    margin: 25px;
+}
+
+.header > h1 {
+    text-align: center;
+    margin: 25px 25px 0px 25px;
+}
+
+.subtitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.subtitle > a {
+    display: flex;
+    align-items: baseline;
+    color: rgb(110, 107, 107);
+    text-decoration: none;
+}
+
+.subtitle > a > i {
+    margin-right: 5px;
+}
+
+#logs {
+    width: 75%;
+    margin: 0 25px;
+    height: 500px;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#logs > p {
+    color: black;
+    padding: 5px;
+    border-top: 1px solid #dee2e6;
+}
+
+.subtitle > a:hover {
+    opacity: 0.5;
+    transition: 0.2s ease;
+}
+
+#logs > p:hover {
+    background-color: #d5d6d642;
+    transition: background-color 0.5s ease;
+}
