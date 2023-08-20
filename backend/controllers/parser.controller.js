@@ -1,5 +1,6 @@
 import regex from "../utils/regex.util.js";
 import { match } from "../utils/match.util.js";
+import { sendMessage } from "../utils/websocket.util.js";
 
 const getLogs = (req, res) => {
 
@@ -9,6 +10,8 @@ const getLogs = (req, res) => {
     var logs = data.split("\n");
     logs.pop();
 
+    const wss = req.wss;
+    
     if (match.firstRequest) {
         console.log(info + "Connection established");
         match.firstRequest = false;
@@ -36,6 +39,7 @@ const getLogs = (req, res) => {
                     msg += "Halftime of the overtime, changing sides\n";
                 msg += "Freezetime has started";
             } else if (result.key === "GAMEOVER") {
+
                 console.log(info + "Match has ended");
                 match.statusCode = 410;
                 return;
@@ -85,6 +89,7 @@ const getLogs = (req, res) => {
                     msg += "Ts have won the round by detonating the bomb";
                 msg += "\n" + info + `Match score: CTs (${result.match[2]}) vs (${result.match[3]}) Ts`
             }
+            sendMessage(wss, msg);
             console.log(msg);
         }
     });
