@@ -19,24 +19,6 @@
         </div>
         <div id="logs"></div>
     </div>
-    <script>
-
-        function scrollToBottom() {
-            var logs = document.querySelector("#logs");
-            logs.scrollTop = logs.scrollHeight;
-        };
-
-        const logs = document.getElementById("logs");
-        const ws = new WebSocket("ws://HOST:PORT");
-        
-        ws.addEventListener("message", (event) => {
-            const message = event.data;
-            const log = document.createElement("p");
-            log.textContent = message;
-            logs.appendChild(log);
-            scrollToBottom();
-        });
-
-    </script>
+    <script src="websocket.js"></script>
 </body>
 </html>

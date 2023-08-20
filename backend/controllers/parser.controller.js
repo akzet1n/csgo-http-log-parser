@@ -2,6 +2,9 @@ import { regex } from "../utils/regex.util.js";
 import { match } from "../utils/match.util.js";
 import { emit } from "../utils/websocket.util.js";
 
+// @desc    Parse the logs coming from the CS:GO server
+// @route   POST /log
+// @access  Public
 const getLogs = (req, res) => {
 
     const info = `${req.headers["x-server-addr"]} | ${req.headers["x-timestamp"]} | Round ${match.round} | `;
