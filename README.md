@@ -49,9 +49,9 @@ Before adding the parser to your game server, check the following steps:
 After you checked those 4 steps, you can now add the parser to the game server. You can add it while the players are in warmup, even if all the players haven't joined yet. Enter the following command on your console:
 
 If you are using RCON:
-- ```rcon log on; rcon mp_logdetail 3; rcon logaddress_add_http "[URL]"```
+- ```rcon log on; rcon mp_logdetail 3; rcon logaddress_add_http "URL"```
 
 If you are using the server console:
-- ```log on; mp_logdetail 3; logaddress_add_http "[URL]"```
+- ```log on; mp_logdetail 3; logaddress_add_http "URL"```
 
 Now head over to your HTML web page, and you should be receiving the game logs live from the game server!
