@@ -1,6 +1,6 @@
 import { addContent } from "./logic.js";
 
-const URL = "ws://127.0.0.1:3000";
+const URL = "ws://PUBLIC_IP:3000";
 const ws = new WebSocket(URL);
 
 function scrollToBottom() {

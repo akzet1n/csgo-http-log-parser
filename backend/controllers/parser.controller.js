@@ -67,7 +67,7 @@ const getLogs = (req, res) => {
                     match.round = 1;
                 emit(req.wss, {
                     type: "world",
-                    round: match.round, 
+                    round: match.round,
                     message: messages[result.match[1]]
                 });
             } else if (result.key === "SAY")

@@ -7,6 +7,7 @@ const messages = {
     Match_Start: "The match has started",
     Round_Start: "The round has started",
     Round_End: "The round has ended",
+    Game_Commencing: "The match is starting",
     SFUI_Notice_Terrorists_Win: "Ts have won the round by killing all CTs",
     SFUI_Notice_Target_Saved: "CTs have won the round by reaching the end of the round without killing all the Ts or without bomb planted",
     SFUI_Notice_Bomb_Defused: "CTs have won the round by defusing the bomb",
