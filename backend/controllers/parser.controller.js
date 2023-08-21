@@ -105,4 +105,8 @@ const getLogs = (req, res) => {
 
 };
 
-export { getLogs };
+const displayPage = (req, res) => {
+    res.sendFile("index.html");
+};
+
+export { getLogs, displayPage };

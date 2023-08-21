@@ -14,6 +14,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(express.static("./frontend"));
+
 import parserRoutes from "./routes/parser.route.js";
 app.use("/", parserRoutes);
 
