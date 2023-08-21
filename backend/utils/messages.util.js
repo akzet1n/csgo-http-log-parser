@@ -3,7 +3,7 @@ const messages = {
     Defused_The_Bomb: "defused the bomb",
     Begin_Bomb_Defuse_Without_Kit: "started to defuse the bomb without defuse kit",
     Begin_Bomb_Defuse_With_Kit: "started to defuse the bomb with defuse kit",
-    SFUI_Notice_CTs_Win: "CTs have won the round by killing all T before the bomb has been planted",
+    SFUI_Notice_CTs_Win: "CTs have won the round by killing all Ts before the bomb has been planted",
     Match_Start: "The match has started",
     Round_Start: "The round has started",
     Round_End: "The round has ended",

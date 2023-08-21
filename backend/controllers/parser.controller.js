@@ -13,7 +13,7 @@ const getLogs = (req, res) => {
     logs.pop();
     
     if (match.firstRequest) {
-        emit(req.wss, { type: "connection", message: "Connection established" });
+        emit(req.wss, { type: "connection", message: `Connection established with game server ${req.headers["x-server-addr"]}` });
         match.firstRequest = false;
     }
 
@@ -102,7 +102,7 @@ const getLogs = (req, res) => {
 
     if (match.statusCode == 410) {
         match.reset();
-        emit(req.wss, { type: "connection", message: "Connection closed" });
+        emit(req.wss, { type: "connection", message: `Connection closed with game server ${req.headers["x-server-addr"]}` });
         res.status(410).send("The match has ended");
     } else {
         res.status(200).send("Receiving logs");
