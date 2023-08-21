@@ -29,17 +29,17 @@ npm install
 ```
 
 ## Usage
-The app is listening on port 3000 by default, this port will listen for both HTTP and Websocket protocols.
+The app is listening on port 3000 by default, this port will be listening both HTTP and Websocket protocols.
 
-The endpoint for the HTTP POST requests is ``http://127.0.0.1:3000/log``. This is the URL that you will need to enter on your game server to start receiving logs in your backend.
+The endpoint where the CS:GO game server will be sending all the HTTP POST requests is ``http://127.0.0.1:3000/log``. This is the URL that you will need to enter on your game server to start receiving logs.
 
-The endpoint for the Websocket server is `ws://127.0.0.1:3000`. With this endpoint, you will be able to connect to the Websocket server thats sending the parsed logs from the backend in real time, so you will be able to see them live via a web browser.
+The endpoint where the application will send the parsed logs via Websocket is `ws://127.0.0.1:3000`. This is were all the parsed logs are sent to then show them in real time in your web browser. 
 
 If you wanna change the port where the app is listening, change the port in ``backend/config.js`` file. Also, make sure to change the port of the Websocket endpoint in ``frontend/websocket.js``.
 
 You can run the app by accessing the root folder that contains the ``backend`` and ``frontend`` folders and then typing ``npm start``.
 
-The website can be accessed at ``http://127.0.0.1:3000/`.
+The website  where you can see your logs in real time can be accessed at ``http://127.0.0.1:3000/`.
 
 Now that your app is configured correctly, check the following steps to start receiving your logs:
 
