@@ -35,7 +35,7 @@ The endpoint where the CS:GO game server will be sending all the HTTP POST reque
 
 The endpoint where the application will send the parsed logs via Websocket is `ws://127.0.0.1:3000`. This is were all the parsed logs are sent to then show them in real time in your web browser. 
 
-If you wanna change the port where the app is listening, change the port in ``backend/config.js`` file. Also, make sure to change the port of the Websocket endpoint in ``frontend/websocket.js``.
+If you wanna change the port where the app is listening, change the port in ``backend/config.js``. Also, make sure to change the port of the Websocket endpoint in ``frontend/websocket.js``.
 
 You can run the app by accessing the root folder that contains the ``backend`` and ``frontend`` folders and then typing ``npm start``.
 
