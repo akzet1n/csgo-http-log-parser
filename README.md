@@ -1,5 +1,5 @@
 # csgo-http-log-parser
-An application that parses the live events coming from the CS:GO game server. Parsed events are sent to a websocket server, so logs can be viewed in real time via an HTML web page. This app should benefit tournament operators that are streaming delayed matches. The observer can be receiving the live logs from the match and see if some good play happened so they don't miss it when the stream passes that moment in the match.
+An application that parses the live events coming from the CS:GO game server. Parsed events are sent to a websocket server, so logs can be viewed in real time via an HTML web page. This app should benefit tournament operators that are streaming delayed matches. The observer can be receiving the live logs from the match and see if some good play happened so they don't miss it when the stream pass that moment in the match.
 
 > This application is focused on competitive matches. It might work on other game modes, but it hasn't been tested yet.
 
