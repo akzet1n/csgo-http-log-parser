@@ -27,10 +27,16 @@ const addContent = (data) => {
         if (data.type === "kill") {
             const killer = pElement(data.killer, data.killerTeam === "CT" ? "ct" : "terrorist");
             div.appendChild(killer);
-            const text = pElement("killed");
+            var text = pElement("killed");
             div.appendChild(text);
             const victim = pElement(data.victim, data.victimTeam === "CT" ? "ct" : "terrorist");
             div.appendChild(victim);
+            text = pElement("with");
+            div.appendChild(text);
+            const weapon = pElement(data.weapon);
+            div.appendChild(weapon);
+            const extras = pElement("(" + data.extras + ")");
+            div.appendChild(extras);
         } else if (data.type === "bomb") {
             const player = pElement(data.player, data.team === "CT" ? "ct": "terrorist");
             div.appendChild(player);
