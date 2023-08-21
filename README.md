@@ -8,10 +8,13 @@ An application that parses the live events coming from the CS:GO game server. Pa
 ## Events parsed
 - Bomb
 - Game Over
+- Freezetime
+- Halftime
+- Overtime
 - Kills
-- Connections
-- World 
-- Say
+- Player connections
+- World
+- Chat
 - Pause
 - Rounds
 
