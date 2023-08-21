@@ -3,7 +3,7 @@ An application that parses the live events coming from the CS:GO game server. Pa
 
 ![Frontend](https://github.com/akzet1n/csgo-http-log-parser/blob/main/screenshot.png?raw=true)
 
-> This application is focused on competitive matches. It might work on other game modes, but it hasn't been tested yet.
+> This application is focused on competitive matches. Make sure overtime is set to MR3 otherwise it won't work.
 
 > The parser can receive logs from just one match at a time, if you want to get logs from more matches at the same time, you can run multiple instances of the app on different ports and it will work fine.
 
