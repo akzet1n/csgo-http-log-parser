@@ -37,9 +37,7 @@ The endpoint where the application will send the parsed logs via Websocket is `w
 
 If you wanna change the port where the app is listening, change the port in ``backend/config.js``. Also, make sure to change the port of the Websocket endpoint in ``frontend/websocket.js``.
 
-You can run the app by accessing the root folder that contains the ``backend`` and ``frontend`` folders and then typing ``npm start``.
-
-The website  where you can see your logs in real time can be accessed at ``http://127.0.0.1:3000/``.
+You can run the app by accessing the root folder that contains the ``backend`` and ``frontend`` folders and then typing ``npm start``. After starting the app, access the website ``http://127.0.0.1:3000/`` where you can see your logs in real time.
 
 Now that your app is configured correctly, check the following steps to start receiving your logs:
 
