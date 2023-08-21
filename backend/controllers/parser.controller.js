@@ -84,14 +84,19 @@ const getLogs = (req, res) => {
                     round: match.round,  
                     message: result.match[1] === "enabled" ? messages[result.match[2]] : "The match has been resumed"
                 });
-            else if (result.key === "ROUND")
+            else if (result.key === "ROUND") {
                 emit(req.wss, {
                     type: "round",
                     round: match.round, 
-                    message: messages[result.match[1]],
+                    message: messages[result.match[1]]
+                });
+                emit(req.wss, {
+                    type: "status",
+                    round: match.round,
                     ctScore: result.match[2],
                     tScore: result.match[3]
                 });
+            }
         }
     });
 
@@ -105,6 +110,10 @@ const getLogs = (req, res) => {
 
 };
 
+
+// @desc    Page where the logs are being displayed
+// @route   GET /
+// @access  Public
 const displayPage = (req, res) => {
     res.sendFile("index.html");
 };
