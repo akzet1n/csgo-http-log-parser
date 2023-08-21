@@ -1,7 +1,7 @@
+import { addContent } from "./logic.js";
+
 const URL = "ws://127.0.0.1:3000";
 const ws = new WebSocket(URL);
-
-const logs = document.getElementById("logs");
 
 function scrollToBottom() {
     var logs = document.querySelector("#logs");
@@ -9,9 +9,11 @@ function scrollToBottom() {
 };
 
 ws.addEventListener("message", (event) => {
-    const message = event.data;
-    const log = document.createElement("p");
-    log.textContent = message;
-    logs.appendChild(log);
-    scrollToBottom();
+    try {
+        const data = JSON.parse(event.data);
+        addContent(data);
+        scrollToBottom();
+    } catch (error) {
+        console.log("Error parsing JSON: ", error);
+    }
 });

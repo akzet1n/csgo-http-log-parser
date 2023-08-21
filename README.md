@@ -7,7 +7,6 @@ An application that parses the live events coming from the CS:GO game server. Pa
 
 ## Events parsed
 - Bomb
-- Freezetime
 - Game Over
 - Kills
 - Connections
@@ -58,6 +57,7 @@ Now head over to your HTML web page, and you should be receiving the game logs l
 
 ## Upcoming features
 
-- Round timing
+- Support match restore
+- Show the live round time of the match
 - Custom player names
-- Multiple instances on the same app
+- Parse multiple matches at the same time

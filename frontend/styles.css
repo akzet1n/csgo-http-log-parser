@@ -61,18 +61,30 @@ body::-webkit-scrollbar {
     border-radius: 5px;
 }
 
-#logs > p {
-    color: black;
-    padding: 5px;
-    border-top: 1px solid #dee2e6;
-}
-
 .subtitle > a:hover {
     opacity: 0.5;
     transition: 0.2s ease;
 }
 
-#logs > p:hover {
+.log {
+    display: flex;
+    align-items: baseline;
+    padding: 5px;
+    gap: 5px;
+    border-top: 1px solid #dee2e6;
+}
+
+.log:hover {
     background-color: #d5d6d642;
     transition: background-color 0.5s ease;
+}
+
+.ct {
+    font-weight: bold;
+    color: blue;
+}
+
+.terrorist {
+    font-weight: bold;
+    color: red;
 }

@@ -19,4 +19,4 @@ app.use("/", parserRoutes);
 
 server.listen(config.backend.port, () => {
     console.log(`>> Receiving logs on port ${config.backend.port}`);
-})
+});
