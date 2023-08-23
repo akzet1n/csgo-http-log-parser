@@ -1,10 +1,15 @@
 @import 'https://fonts.googleapis.com/css?family=Ubuntu';
 
+:root {
+    --ct: #3681c5;
+    --t: #f0b412;
+}
+
 * {
     font-family: Ubuntu, sans-serif;
 }
 
-body, h1, h3, p {
+body, h2, h3, p {
     margin: 0;
     padding: 0;
 }
@@ -15,63 +20,77 @@ body::-webkit-scrollbar {
 }
 
 .content {
-    width: 100%;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+}
+
+.content > div {
+    width: 75%;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-    margin: 25px;
+    display: grid;
+    height: 40px;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
-.header > h1 {
-    text-align: center;
-    margin: 25px 25px 0px 25px;
-}
-
-.subtitle {
+.title {
+    height: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    align-items: center;
+    text-align: center;
 }
 
-.subtitle > a {
+.title > a {
     display: flex;
-    align-items: baseline;
-    color: rgb(110, 107, 107);
+    align-items: center;
+    color: black;
     text-decoration: none;
 }
 
-.subtitle > a > i {
-    margin-right: 5px;
+.title > a > i {
+    margin-right: 10px;
+}
+
+.title > a:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
 }
 
 #logs {
-    width: 75%;
-    margin: 0 25px;
-    height: 500px;
-    padding: 10px;
+    height: calc(100vh - 200px);
     overflow: auto;
-    border: 1px solid black;
-    border-radius: 5px;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
-.subtitle > a:hover {
-    opacity: 0.5;
-    transition: 0.2s ease;
+.hide {
+    display: none !important;
+}
+
+#status {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .log {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    padding: 5px;
+    padding: 8px;
     gap: 5px;
-    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .log:hover {
@@ -80,11 +99,11 @@ body::-webkit-scrollbar {
 }
 
 .ct {
+    color: var(--ct);
     font-weight: bold;
-    color: blue;
 }
 
-.terrorist {
+.t {
+    color: var(--t);
     font-weight: bold;
-    color: red;
 }

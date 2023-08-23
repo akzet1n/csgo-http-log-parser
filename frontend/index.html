@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=1" />
     <title>CS:GO HTTP Log Parser</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -9,15 +10,19 @@
 <body>
     <div class="content">
         <div class="header">
-            <h1>CS:GO HTTP Log Parser</h1>
-            <div class="subtitle">
+            <div class="title">
                 <a href="https://github.com/akzet1n/csgo-http-log-parser" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                    <h3>github.com/akzet1n</h3>
+                    <i class="fa-brands fa-github fa-xl"></i>
+                    <h3>CS:GO HTTP Log Parser</h3>
                 </a>
             </div>
         </div>
-        <div id="logs"></div>
+        <div id="logs">
+            <div id="status">
+                <h2>No logs are being received </h2>
+                <h3>Waiting for a connection</h3>
+            </div>
+        </div>
     </div>
     <script type="module" src="websocket.js"></script>
 </body>
