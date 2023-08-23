@@ -9,11 +9,6 @@ app.use(express.text());
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
-app.use((req, res, next) => {
-    req.wss = wss;
-    next();
-});
-
 app.use(express.static("./frontend"));
 
 import parserRoutes from "./routes/parser.route.js";
@@ -22,3 +17,5 @@ app.use("/", parserRoutes);
 server.listen(config.backend.port, () => {
     console.log(`>> Receiving logs on port ${config.backend.port}`);
 });
+
+export { wss };

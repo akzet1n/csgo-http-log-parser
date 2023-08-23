@@ -13,7 +13,7 @@ const getLogs = (req, res) => {
     logs.pop();
     
     if (match.firstRequest) {
-        emit(req.wss, { type: "connection", message: `Connection established with game server ${req.headers["x-server-addr"]}` });
+        emit({ type: "connection", message: `Connection established with game server ${req.headers["x-server-addr"]}` });
         match.firstRequest = false;
     }
 
@@ -21,7 +21,7 @@ const getLogs = (req, res) => {
         const result = regex(line);
         if (result && match.statusCode == 200) {
             if (result.key === "BOMB")
-                emit(req.wss, {
+                emit({
                     type: "bomb",
                     round: match.round, 
                     player: result.match[1].trimStart(),
@@ -31,18 +31,18 @@ const getLogs = (req, res) => {
             else if (result.key === "FREEZETIME") {
                 match.round++;
                 if (match.round === 16)
-                    emit(req.wss, { type: "freezetime", round: match.round,  message: "Halftime, changing sides" });
+                    emit({ type: "freezetime", round: match.round,  message: "Halftime, changing sides" });
                 else if (match.round == 31)
-                    emit(req.wss, { type: "freezetime", round: match.round,  message: "Overtime has started" });
+                    emit({ type: "freezetime", round: match.round,  message: "Overtime has started" });
                 else if (match.round > 31 && match.round % 6 == 4)
-                    emit(req.wss, { type: "freezetime", round: match.round,  message: "Halftime of the overtime, changing sides" });
-                emit(req.wss, { type: "freezetime", round: match.round,  message: "Freezetime has started" });
+                    emit({ type: "freezetime", round: match.round,  message: "Halftime of the overtime, changing sides" });
+                emit({ type: "freezetime", round: match.round,  message: "Freezetime has started" });
             } else if (result.key === "GAMEOVER") {
-                emit(req.wss, { type: "gg", round: match.round,  message: "The match has ended" });
+                emit({ type: "gg", round: match.round,  message: "The match has ended" });
                 match.statusCode = 410;
                 return;
             } else if (result.key === "KILL")
-                emit(req.wss, {
+                emit({
                     type: "kill",
                     round: match.round, 
                     killer: result.match[1].trimStart(),
@@ -53,7 +53,7 @@ const getLogs = (req, res) => {
                     extras: result.match[8] || null
                 });
             else if (result.key === "PLAYER")
-                emit(req.wss, {
+                emit({
                     type: "player",
                     round: match.round, 
                     player: result.match[1].trimStart(),
@@ -62,16 +62,16 @@ const getLogs = (req, res) => {
                 });
             else if (result.key === "WORLD") {
                 if (result.match[1] === "Round_Start")
-                    emit(req.wss, { type: "world", round: match.round, message: "Freezetime has ended" });
+                    emit({ type: "world", round: match.round, message: "Freezetime has ended" });
                 else if (result.match[1] === "Match_Start")
                     match.round = 1;
-                emit(req.wss, {
+                emit({
                     type: "world",
                     round: match.round,
                     message: messages[result.match[1]]
                 });
             } else if (result.key === "SAY")
-                emit(req.wss, {
+                emit({
                     type: "say",
                     round: match.round, 
                     player: result.match[1],
@@ -79,18 +79,18 @@ const getLogs = (req, res) => {
                     message: result.match[4]
                 });
             else if (result.key === "PAUSE")
-                emit(req.wss, {
+                emit({
                     type: "pause",
                     round: match.round,  
                     message: result.match[1] === "enabled" ? messages[result.match[2]] : "The match has been resumed"
                 });
             else if (result.key === "ROUND") {
-                emit(req.wss, {
+                emit({
                     type: "round",
                     round: match.round, 
                     message: messages[result.match[1]]
                 });
-                emit(req.wss, {
+                emit({
                     type: "status",
                     round: match.round,
                     ctScore: result.match[2],
@@ -102,7 +102,7 @@ const getLogs = (req, res) => {
 
     if (match.statusCode == 410) {
         match.reset();
-        emit(req.wss, { type: "connection", message: `Connection closed with game server ${req.headers["x-server-addr"]}` });
+        emit({ type: "connection", message: `Connection closed with game server ${req.headers["x-server-addr"]}` });
         res.status(410).send("The match has ended");
     } else {
         res.status(200).send("Receiving logs");
