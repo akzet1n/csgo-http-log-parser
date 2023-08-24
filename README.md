@@ -48,6 +48,8 @@ Now that your app is configured correctly, check the following steps to start re
 3. You have RCON access to the game server.
 4. The match hasn't started yet.
 
+> It's ideal to start receiving logs when the match starts, but if for some reason the connection dropped, wasn't able to add it at the start, or whatever, you can add the parser to the server and it will retrieve all the logs of the match (as long as if the commands ``log on`` and ``mp_logdetail 3`` are enabled already).
+
 After you checked those 4 steps, you can now add the parser to the game server. You can add it while the players are in warmup, even if all the players haven't joined yet. Enter the following command on your console:
 
 If you are using RCON:

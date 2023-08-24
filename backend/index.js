@@ -4,7 +4,7 @@ import { WebSocketServer } from "ws";
 import { config } from "./config.js";
 
 const app = express();
-app.use(express.text());
+app.use(express.text({ limit: "50mb" }));
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
