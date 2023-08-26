@@ -1,22 +1,12 @@
 {
   "name": "csgo-http-log-parser",
-  "version": "0.9b",
-  "description": "An application that parses the live events coming from a CS:GO server via HTTP POST requests. The logs can be seen in real time in a website using Websockets.",
+  "version": "1.0",
+  "description": "An application that parses the live events coming from a CS:GO server.",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/index.js",
-    "dev": "nodemon backend/index.js"
-  },
-  "author": {
-    "name": "Roberto Videla",
-    "email": "contacto@akzet1n.com",
-    "url": "https://github.com/akzet1n"
-  },
-  "license": "LGPL-3.0-or-later",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/akzet1n/csgo-http-log-parser.git"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
     "express": "^4.18.2",
