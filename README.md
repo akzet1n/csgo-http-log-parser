@@ -66,7 +66,8 @@ Now, head over to the website and you should start receiving the game logs live 
 
 ## Upcoming features
 
-- Support match restore
-- Show the live round time of the match
+- Match restoring
+- Live round timing
 - Custom player names
-- Parse multiple matches at the same time
+- Simultaneous match parsing
+- Multi-language messages
